@@ -59,8 +59,8 @@ export async function POST(req: NextRequest) {
     }
 
     case 'customer.subscription.deleted': {
-      const sub = event.data.object as
-          Stripe.Subscription await supabase.from('subscriptions')
+      const sub = event.data.object as Stripe.Subscription
+      await supabase.from('subscriptions')
               .update(
                   {status: 'cancelled', updated_at: new Date().toISOString()})
               .eq('stripe_subscription_id', sub.id)
@@ -68,11 +68,11 @@ export async function POST(req: NextRequest) {
     }
 
     case 'invoice.payment_failed': {
-      const invoice = event.data.object as
-          Stripe.Invoice await supabase.from('subscriptions')
+      const invoice = event.data.object as Stripe.Invoice;
+      await supabase.from('subscriptions')
               .update({status: 'lapsed', updated_at: new Date().toISOString()})
               .eq('stripe_customer_id', invoice.customer as string)
-      break
+      break;
     }
   }
 
