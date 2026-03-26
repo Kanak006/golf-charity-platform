@@ -68,12 +68,18 @@ export async function POST(req: NextRequest) {
     }
 
     case 'invoice.payment_failed': {
-      const invoice = event.data.object as Stripe.Invoice;
-      await supabase.from('subscriptions')
-              .update({status: 'lapsed', updated_at: new Date().toISOString()})
-              .eq('stripe_customer_id', invoice.customer as string)
-      break;
-    }
+  const invoice = event.data.object as Stripe.Invoice;
+
+  await supabase
+    .from('subscriptions')
+    .update({
+      status: 'lapsed',
+      updated_at: new Date().toISOString()
+    })
+    .eq('stripe_customer_id', invoice.customer as string);
+
+  break;
+}
   }
 
   return NextResponse.json({received: true})
