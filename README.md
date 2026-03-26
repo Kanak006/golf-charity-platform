@@ -1,4 +1,4 @@
-# Golf Charity Platform
+<!-- # Golf Charity Platform
 
 A full-stack subscription golf platform combining performance tracking, monthly prize draws, and charitable giving.
 
@@ -165,4 +165,63 @@ Multiple winners in the same tier split the prize equally.
 
 ---
 
-# golf-charity-platform
+# golf-charity-platform -->
+
+
+
+
+
+# Golf Charity Platform
+
+A full-stack web application that combines golf score tracking with a charity-driven prize system.
+
+Built with Next.js · Supabase · Tailwind CSS · Vercel
+
+---
+
+## 🚀 Features
+
+### User Features
+⛳ Score tracking — Add and manage your latest golf scores  
+🔢 Score limit logic — Only the latest 5 scores are stored per user  
+🎯 Draw readiness — Scores are structured for use in prize draw logic  
+💚 Charity section — View available charity partners  
+
+---
+
+### Core Logic Implemented
+- Latest 5 scores per user (automatic replacement of oldest)
+- Backend API for score management
+- Supabase database integration
+- Basic UI for score entry and display
+
+---
+
+## 🛠 Tech Stack
+
+| Layer      | Technology |
+|------------|------------|
+| Frontend   | Next.js (App Router) |
+| Styling    | Tailwind CSS |
+| Backend    | Next.js API Routes |
+| Database   | Supabase (PostgreSQL) |
+| Deployment | Vercel |
+
+---
+
+## ⚙️ Setup Instructions
+
+```bash
+# Install dependencies
+npm install
+
+# Setup environment variables
+cp .env.local.example .env.local
+# Add your Supabase credentials
+
+# Run database migrations (Supabase SQL Editor)
+# 001_initial_schema.sql
+# 003_seed_data.sql (optional)
+
+# Start development server
+npm run dev
